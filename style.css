@@ -1,0 +1,333 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #1e293b;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+/* ─── Düzen ─── */
+.wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* ─── Soldaki yer bulma seysi ─── */
+.navigator {
+    width: 250px;
+    background-color: #0f4c5c;
+    color: white;
+    padding: 20px;
+    height: 100%;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.navigator h2 {
+    margin-top: 0;
+}
+
+.navigator ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navigator ul li {
+    margin: 10px 0;
+}
+
+.navigator ul li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigator ul li a:hover {
+    background-color: #176a80;
+    color: white;
+}
+
+/* ─── itemler ─── */
+.content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}  
+
+.page {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+}
+
+.top {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.top h1 {
+    margin: 0;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.top p {
+    color: #64748b;
+    margin-top: 8px;
+    font-size: 1.1em;
+}
+
+/* ───  item alt basliklari ─── */
+.content-in {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    flex: 1;
+}
+
+.content-in-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    position: relative;
+    flex: 1;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.content-in-item:nth-child(1) {
+    grid-column: span 2;
+}
+
+.content-in-item:nth-child(4) {
+    grid-column: span 2;
+}
+
+.content-in-item:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+
+.card-grid {
+    background-color: #2C3E50;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-grid .baslik {
+    color: rgb(241, 237, 237);
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1vh;
+}
+
+.text-box {
+    border: rgb(219, 217, 217) solid 2px;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    overflow-x: auto;
+}
+
+.text-box p  {
+    color: #1e293b;
+}
+
+.item-header {
+    height: 40px;
+    color: #1e293b;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.item-content {
+    flex: 1;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    border: 1px dashed #cbd5e1;
+}
+.item-in-item-rapor {
+    display: grid;
+    align-items: start;
+    grid-template-columns:repeat(3, 1fr);
+    
+}
+.item-button {
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.3);
+}
+
+.item-button:hover {
+    background-color: #0284c7;
+}
+
+.item-button:active {
+    transform: scale(0.98);
+}
+
+/* ─── Su ─── */
+#waterChart {
+    width: 100%;
+    height: 100%;
+}
+
+.water-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.water-content-over {
+    position: absolute;
+    top: 60%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 48px;
+    color: rgba(14, 165, 233, 0.2);
+    pointer-events: none;
+}
+
+.water-content-over i {
+    font-size: 64px;
+    margin-bottom: 10px;
+}
+
+.water-content-over .deger {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* ─── Besin Değerleri ─── */
+.besin-degerleri-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+.besin-degeri {
+    background-color: #e2e8f0;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: auto;
+    gap: 10px;
+    text-align: center;
+}
+
+.besin-degeri i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.besin-degeri .baslik {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.besin-degeri .deger {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.besin-protein {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.besin-karb {
+    background: #e0f2fe;
+    color: #075985;
+}
+
+.besin-yag {
+    background: #fef3c7;
+    color: #92400e;
+}
+/* Profil İÇerigi*/
+.profile-content {
+    width: 100%; 
+    margin: 0;
+    flex: 1;
+    padding: 0;
+}
+.profile-row div {
+    margin-left: 20px;
+}
+
+.profile-content div {
+    gap: 200px;
+}
+.profile-content div div {
+    gap: 20px;
+}
+
+.item-content :nth-child(1) {
+    flex: 0 0 auto;
+}
+
+.item-content :nth-child(2) {
+    flex: 0 0 auto;
+}
+
+.item-content :nth-child(3) {
+    flex: 0.5 0 auto;
+}
+
+/* ayarlardaki yukarı kısım tuşu*/
+.button-settings-top {
+    width: 100%;
+    padding: 20px;
+    background-color: #0f4c5c;
+    border-top-left-radius: px;
+}
+.button-settings-top:hover {
+    background-color: #135d70 ;
+    border-bottom: #38bdf8 4px solid;
+}
+.button-settings-top p {
+    text-align: center;
+}

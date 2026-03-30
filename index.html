@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vita - Kişisel Sağlık Takibi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navigator">
+            <h2 style="font-size: 32px; font-weight: 700; color: white; margin: 0; padding: 20px 0; border-bottom: 2px solid #e2e8f0; box-shadow: 0 1px 0 #e2e8f0;"> <i class="fa-solid fa-heart-pulse"></i> Vita</h2>
+            
+            <ul>
+                <li><a href="#" data-page="anasayfa"> <i class="fa-solid fa-house"></i> Anasayfa</a></li>
+                <li><a href="#" data-page="profil"> <i class="fa-solid fa-user"></i> Profilim</a></li>
+                <li><a href="#" data-page="raporlar"> <i class="fa-solid fa-book-open"></i> Raporlar</a></li>
+                <li><a href="#" data-page="ayarlar"> <i class="fa-solid fa-gear"></i> Ayarlar</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div id="anasayfa" class="page">
+                <div class="top">
+                    <h1>Vita - Kişisel Sağlık Takibi</h1>
+                    <p>Sağlığınızı takip edin ve daha sağlıklı bir yaşam sürün!</p>
+                </div>
+                <div class="content-in">
+                    <div class="content-in-item">
+                        <div class="item-header">GUNLUK GORUNUM</div>
+                        <div class="item-content">
+                            <canvas id="dailyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="content-in-item">
+                        <div class="item-header">SU TUKETIMI</div>
+                        <div class="item-content water-content">
+                            <div>
+                                <button class="item-button" name="water-drink-button" id="drink-water">Su İç - 250 mll</button>
+                            </div>
+                            <div class="water-content-over">
+                                <i class="fa-solid fa-bottle-water"></i>
+                                <span class="deger">0 ml</span>
+                            </div>
+                            <div><canvas id="waterChart"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="content-in-item">
+                        <div class="item-header">YAKILAN KALORI</div>
+                        <div class="item-content">
+                            <div><canvas id="CalorieChart"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="content-in-item">
+                        <div class="item-header">BESIN DEGERLERI</div>
+                        <div class="item-content besin-degerleri-content">
+                            <div class="besin-degeri besin-protein " style="flex: 0 0 auto;">
+                                <i class="fa-solid fa-drumstick-bite"></i>
+                                <span class="baslik">Protein</span>
+                                <span class="deger">120g</span>
+                            </div>
+                            <div class="besin-degeri besin-karb" style="flex: 0 0 auto;">
+                                <i class="fa-solid fa-wheat-awn"></i>
+                                <span class="baslik">Karbonhidrat</span>
+                                <span class="deger">210g</span>
+                            </div>
+                            <div class="besin-degeri besin-yag" style="flex: 0 0 auto;">
+                                <i class="fa-solid fa-cheese"></i>
+                                <span class="baslik">Yağ</span>
+                                <span class="deger">65g</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-in-item">
+                        <div class="item-header">HAFTALIK AKTIVITE</div>
+                        <div class="item-content"><canvas id="activityChart"></canvas></div>
+                    </div>
+                    <div class="content-in-item">
+                        <div class="item-header">UYKU ORANI</div>
+                        <div class="item-content" style="justify-content: center;">
+                            <div style="text-align:center;">
+                                <div style="font-size: 48px; font-weight: 700; color: #0f4c5c;">7.4<span
+                                        style="font-size:20px;">sa</span></div>
+                                <div style="color: #64748b; margin-top: 8px;">Ortalama Uyku Süresi</div>
+                                <div style="margin-top: 15px; font-size: 14px;">
+                                    😴 Kalite: <strong>İyi</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="profil" class="page">
+                <div class="top">
+                    <h1>Profilim</h1>
+                    <p>Kişisel bilgilerinizi ve sağlık hedeflerinizi yönetin.</p>
+                </div>
+                <div class="content-in">
+                    <div class="content-in-item">
+                        <div class="item-header">SAĞLIK PROFILI</div>
+                        <div style="display: flex; flex-direction: column; padding: 10px; " class="item-content" >
+                            <div class="profile-content"   >
+                                <p style="font-size: small; padding-bottom: 0;">Son Güncelleme: 28.03.2026</p>
+                                <h3 style="margin-top: 2px;"><strong>Temel Bilgiler</strong></h3>
+                                <hr style="width: 90%; color: rgba(171, 170, 170, 0.1); ">
+                            </div>
+                            <div class="profile-content profile-row" style="flex-direction: row; display: flex; margin-bottom: 20px;">
+                                <div>
+                                    <p style="font-weight: 600; font-size:14px;">İsim Soyisim:</p>
+                                    <p style="font-weight: 600;">Kortay Köktürk</p>
+                                    <p style="font-weight: 600; font-size:14px; margin-top: 20px;">Doğum Tarihi:</p>
+                                    <p style="font-weight: 600;">08.03.2004</p>
+                                </div>
+                                <div style="padding-left: 100px;">
+                                    <p style="font-weight: 600; font-size:14px;">Cinsiyet:</p>
+                                    <p style="font-weight: 600;">Erkek</p>
+                                    <p style="font-weight: 600; font-size:14px; margin-top: 20px;"">Doğum Gününe Kalan:</p>
+                                    <p style="background-color: rgba(179, 220, 179, 0.5); width:fit-content; font-weight: bold; padding: 5px; border-radius: 4px; ">28 gün</p>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="profile-content" style=" background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                <h3 style="margin-left: 20px;"><strong>Fiziksel Ölçümler</strong></h3>
+                                <hr style="width: 90%; color: rgba(217, 216, 216, 0.2);">
+                                <div style="display: flex; flex-direction: row; flex: 1; margin-left: 10px; ">
+                                    <div style="margin-left: 20px; ">
+                                        <p style="margin-left: 5px;">Boy:</p>
+                                        <p style="margin-top: 5px;">192 cm</p>
+                                    </div>
+                                    <div>
+                                        <p style="margin-left: 5px;">Kilo:</p>
+                                        <p style="margin-top: 5px;">110 cm</p>
+                                    </div>
+                                    <div>
+                                        <p style="margin-left: 5px;">BMI:</p>
+                                        <p style="margin-top: 5px; background-color: rgba(190, 39, 67, 0.5); width:fit-content; font-weight: bold; padding: 5px; border-radius: 4px; ">29.5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-content" style="flex: 0 0 auto;">
+                                <h3><strong>Ek Profil Bilgileri</strong></h3>
+                                <hr style="width: 90%; color: rgba(171, 170, 170, 0.1);">
+                                <div style="display: flex; flex-direction: row; gap: 140px; margin-left: 20px;">
+                                    
+                                        <div style="margin-left: 20px;">
+                                            <p style="margin-left: 5px;">Hedef Kilo:</p>
+                                            <p style="margin-top: 5px;">95 KG</p>
+                                        </div>
+                                        <div>
+                                            <p style="margin-left: 5px;">Aktiflik Skoru:</p>
+                                            <p
+                                                style="margin-top: 5px; background-color: rgba(10, 218, 83, 0.5); width:fit-content; font-weight: bold; padding: 5px; border-radius: 4px; ">
+                                                77</p>
+                                        </div>
+                                        <div>
+                                            <p style="margin-left: 5px;">Uyku Skoru:</p>
+                                            <p
+                                                style="margin-top: 5px; background-color: rgba(92, 27, 135, 0.5); width:fit-content; font-weight: bold; padding: 5px; border-radius: 4px; ">
+                                                66</p>
+                                        </div>
+                                </div>
+                                <hr style="width: 90%; color: rgba(171, 170, 170, 0.1);">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="raporlar" class="page">
+                <div class="top">
+                    <h1>Raporlar</h1>
+                    <p>Sağlık verilerinizin detaylı raporlarını görüntüleyin.</p>
+                </div>
+                <div class="content-in"  >
+                    <div class="content-in-item " style="height: 100%; height: 100vh; grid-column: span 4;">
+                        <div class="item-header" >Aylık Rapor</div>
+                        <div class="item-content item-in-item-rapor" style="overflow-y: auto; gap: 20px;" >
+                            
+                            <div class="card-grid" style="width: 90%; height: 40vh;" >
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box" style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                                    
+
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            <div class="card-grid" style="width: 90%; height: 40vh;">
+                                <div>
+                                    <p class="baslik">Özet</p>
+                                </div>
+                                <div class="text-box"
+                                    style="background-color: #F8FAFC; align-items: start; justify-content: start; width: 80%; height: 70%;">
+                                    <p> Burası tüm günün özetinin çıkarılacağı yer</p>
+                            
+                            
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ayarlar" class="page">
+                <div class="top">
+                    <h1>Ayarlar</h1>
+                    <p>Uygulama ayarlarınızı buradan yapabilirsiniz.</p>
+                    <hr>
+                </div>
+                <div class="content-in" style="display: flex;">
+                    <div style="margin-left: 1vh; display: flex; flex-direction: column; width: 10%;">
+                        <div class="button-settings-top" style="border-top-left-radius: 24px;">
+                            <p><strong>Kişisel Bilgiler</strong></p>
+                        </div>
+                        <div class="button-settings-top">
+                            <p><strong>Kişisel Hedefler</strong></p>
+                        </div>
+                        <div class="button-settings-top" style="border-bottom-left-radius: 8px;">
+                            <p><strong>Diger</strong></p>
+                        </div>
+                    </div>
+                    <div style="margin-left: 1vh; background-color: #0e4654; width: 60%; height: 60%; border: #226678 4px solid;">
+                    
+                    </div>
+                </div> 
+            </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
