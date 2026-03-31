@@ -22,6 +22,9 @@
                 <li><a href="#" data-page="raporlar"> <i class="fa-solid fa-book-open"></i> Raporlar</a></li>
                 <li><a href="#" data-page="ayarlar"> <i class="fa-solid fa-gear"></i> Ayarlar</a></li>
             </ul>
+            <div class="navigator-bottom">
+
+            </div>
         </div>
         <div class="content">
             <div id="anasayfa" class="page">
@@ -49,12 +52,7 @@
                             <div><canvas id="waterChart"></canvas></div>
                         </div>
                     </div>
-                    <div class="content-in-item">
-                        <div class="item-header">YAKILAN KALORI</div>
-                        <div class="item-content">
-                            <div><canvas id="CalorieChart"></canvas></div>
-                        </div>
-                    </div>
+                    
                     <div class="content-in-item">
                         <div class="item-header">BESIN DEGERLERI</div>
                         <div class="item-content besin-degerleri-content">
@@ -73,6 +71,12 @@
                                 <span class="baslik">Yağ</span>
                                 <span class="deger">65g</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="content-in-item">
+                        <div class="item-header">YAKILAN KALORI</div>
+                        <div class="item-content">
+                            <div><canvas id="CalorieChart"></canvas></div>
                         </div>
                     </div>
                     <div class="content-in-item">
@@ -358,8 +362,16 @@
                             <p><strong>Diger</strong></p>
                         </div>
                     </div>
-                    <div style="margin-left: 1vh; background-color: #0e4654; width: 60%; height: 60%; border: #226678 4px solid;">
-                    
+                    <div style="margin-left: 1vh; background-color: #ffffff; width: 60%; height: 100%; border: #226678 4px solid;">
+                        <div style="display: flex; flex-direction: column; padding: 10px;">
+                            <label>İsim: <input type="text"></label>
+                            <hr style="width: 100%; color: #0f4c5c;">
+                            <label>Kilo: <input type="text"> Boy: <input type="text"> Hedef Kilo: <input type="text"></label>
+                            <hr style="width: 100%; color: #0f4c5c;">
+                            <label>Yaş: <input type="text"> Doğum Tarihi <input type="text"> </label>
+                            <hr>
+                            <label>Günlük Kalori Hedefi: <input type="text"></label>
+                        </div>
                     </div>
                 </div> 
             </div>

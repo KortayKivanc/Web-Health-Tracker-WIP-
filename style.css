@@ -23,8 +23,8 @@ p {
     height: 100%;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
+    
 }
-
 .navigator h2 {
     margin-top: 0;
 }
@@ -56,11 +56,11 @@ p {
 .content {
     flex: 1;
     padding: 30px;
-    background-color: #f0f4f8;
     display: flex;
     flex-direction: column;
     overflow: scroll;
-}  
+    background-color: #dfdbe5;
+    background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23c4b6d9' fill-opacity='0.33'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}  
 
 .page {
     display: none;
@@ -109,7 +109,7 @@ p {
     grid-column: span 2;
 }
 
-.content-in-item:nth-child(4) {
+.content-in-item:nth-child(3) {
     grid-column: span 2;
 }
 
