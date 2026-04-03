@@ -151,3 +151,14 @@ for (let item of document.querySelectorAll(".navigator a"))
     });
     
 }
+for (let item of document.querySelectorAll(".buttons-settings div"))
+{
+    item.addEventListener("click", function()
+    {
+        for (let choosen_page of document.querySelectorAll(".option-page"))
+        {
+            choosen_page.style.display = "none";
+        }
+        document.getElementById(item.dataset.page).style.display = "flex";
+    });
+}

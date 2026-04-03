@@ -138,7 +138,7 @@
                                     </div>
                                     <div>
                                         <p style="margin-left: 5px;">Kilo:</p>
-                                        <p style="margin-top: 5px;">110 cm</p>
+                                        <p style="margin-top: 5px;">110 KG</p>
                                     </div>
                                     <div>
                                         <p style="margin-left: 5px;">BMI:</p>
@@ -351,26 +351,36 @@
                     <hr>
                 </div>
                 <div class="content-in" style="display: flex;">
-                    <div style="margin-left: 1vh; display: flex; flex-direction: column; width: 10%;">
-                        <div class="button-settings-top" style="border-top-left-radius: 24px;">
-                            <p><strong>Kişisel Bilgiler</strong></p>
+                    <div style="margin-left: 1vh; display: flex; flex-direction: column; width: 10%;" class="buttons-settings">
+                        <div class="button-settings-top" data-page="personal-info" style="border-top-left-radius: 24px;">
+                            <p style="color:#e2e8f0; cursor: pointer;"><strong>Kişisel Bilgiler</strong></p>
                         </div>
-                        <div class="button-settings-top">
-                            <p><strong>Kişisel Hedefler</strong></p>
-                        </div>
-                        <div class="button-settings-top" style="border-bottom-left-radius: 8px;">
-                            <p><strong>Diger</strong></p>
+                        <div  class="button-settings-top" data-page="other" style="border-bottom-left-radius: 8px;">
+                            <p style="color:#e2e8f0; cursor: pointer;"><strong>Diger</strong></p>
                         </div>
                     </div>
-                    <div style="margin-left: 1vh; background-color: #ffffff; width: 60%; height: 100%; border: #226678 4px solid;">
+                    <div id="personal-info" class="option-page" style="margin-left: 1vh; background-color: #ffffff; width: 60%; height: 100%; border: #226678 4px solid;">
                         <div style="display: flex; flex-direction: column; padding: 10px;">
-                            <label>İsim: <input type="text"></label>
+                            <label> <input type="text">: İsim</label>
+                            <label> <input type="text">: Soyisim</label>
                             <hr style="width: 100%; color: #0f4c5c;">
-                            <label>Kilo: <input type="text"> Boy: <input type="text"> Hedef Kilo: <input type="text"></label>
+                            <label> <input type="text">: Kilo</label>
+                            <label> <input type="text">: Boy</label>
+                            <label> <input type="text">: Hedef Kilo</label>
                             <hr style="width: 100%; color: #0f4c5c;">
-                            <label>Yaş: <input type="text"> Doğum Tarihi <input type="text"> </label>
+                            <label> <input type="text">: Yaş</label>
+                            <label> <input type="text">: Doğum Tarihi</label>
                             <hr>
-                            <label>Günlük Kalori Hedefi: <input type="text"></label>
+                            <label> <input type="text">: Günlük Kalori Hedefi</label>
+                        </div>
+                    </div>
+                    <div id="other" class="option-page" style="margin-left: 1vh; background-color: #ffffff; width: 60%; height: 100%; border: #226678 4px solid; display: none;">
+                        <div style="display: flex; flex-direction: column; padding: 10px;">
+                            <hr style="width: 100%; color: #0f4c5c;">
+                            <label> <input type="text">: AI anahtarı</label>
+                            <label> <input type="text">: Saat Dilimi</label>
+                            <hr style="width: 100%; color: #0f4c5c;">
+                            
                         </div>
                     </div>
                 </div> 
