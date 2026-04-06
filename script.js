@@ -167,7 +167,7 @@ let buton_item = document.getElementById("chat_button");
 let input_item = document.getElementById("chat_input")
 buton_item.addEventListener("click", function()
 {   
-    let input = document.getElementById("chat_input").value;
+    let input = input_item.value;
     if (input != null && input != "")
     {
         send_message(input, "Kullanıcı");
@@ -177,7 +177,7 @@ input_item.addEventListener("keydown", (event) =>
 {   
     if(event.key == "Enter")
     {
-        let input = document.getElementById("chat_input").value;
+        let input = input_item.value;
         if (input != null && input != "")
         {
             send_message(input, "Kullanıcı");
@@ -197,7 +197,7 @@ function send_message(value, sender)
     chat_msg.textContent = value;
     document.querySelector(".chatbox").appendChild(chat_msg_header);
     document.querySelector(".chatbox").appendChild(chat_msg);
-    document.getElementById("chat_input").value = "";
+    input_item.value = "";
     let objDiv = document.getElementById("chatbox_wrapper");
     objDiv.scrollTop = objDiv.scrollHeight;
 }
