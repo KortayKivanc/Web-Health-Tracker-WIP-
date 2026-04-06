@@ -164,21 +164,40 @@ for (let item of document.querySelectorAll(".buttons-settings div"))
 }
 
 let buton_item = document.getElementById("chat_button");
+let input_item = document.getElementById("chat_input")
 buton_item.addEventListener("click", function()
-{
+{   
     let input = document.getElementById("chat_input").value;
     if (input != null && input != "")
     {
-        const chat_msg_header = document.createElement("div");
-        chat_msg_header.classList.add("nameTag");
-        chat_msg_header.textContent = "Kullanıcı: "
-        const chat_msg = document.createElement("div");
-        chat_msg.classList.add("aiChat");
-        chat_msg.textContent = input;
-        document.querySelector(".chatbox").appendChild(chat_msg_header);
-        document.querySelector(".chatbox").appendChild(chat_msg);
-        document.getElementById("chat_input").value = "";
-        let objDiv = document.getElementById(".chatbox_wrapper");
-        objDiv.scrollTop = objDiv.scrollHeight;
+        send_message(input, "Kullanıcı");
     }
 })
+input_item.addEventListener("keydown", (event) =>
+{   
+    if(event.key == "Enter")
+    {
+        let input = document.getElementById("chat_input").value;
+        if (input != null && input != "")
+        {
+            send_message(input, "Kullanıcı");
+        }
+    }
+})
+
+
+
+function send_message(value, sender)
+{
+    const chat_msg_header = document.createElement("div");
+    chat_msg_header.classList.add("nameTag");
+    chat_msg_header.textContent = sender + ":"
+    const chat_msg = document.createElement("div");
+    chat_msg.classList.add("aiChat");
+    chat_msg.textContent = value;
+    document.querySelector(".chatbox").appendChild(chat_msg_header);
+    document.querySelector(".chatbox").appendChild(chat_msg);
+    document.getElementById("chat_input").value = "";
+    let objDiv = document.getElementById("chatbox_wrapper");
+    objDiv.scrollTop = objDiv.scrollHeight;
+}
