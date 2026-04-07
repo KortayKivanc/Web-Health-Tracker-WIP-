@@ -231,7 +231,7 @@ async function getAIResponse(userInput) {
         console.log(response.text);
         const text = response.text;
         
-        send_message(text, "Gemini");
+        send_message(text, "Asistan");
     } catch (error) {
         console.error("Gemini Error:", error);
         send_message("Bağlantı hatası oluştu.", "Sistem");
@@ -250,10 +250,10 @@ function send_message(value, sender)
     chat_msg_header.classList.add("nameTag");
     chat_msg_header.textContent = sender + ":"
     const chat_msg = document.createElement("div");
-    chat_msg.classList.add("aiChat");
-    chat_msg.textContent = value;
     document.querySelector(".chatbox").appendChild(chat_msg_header);
     document.querySelector(".chatbox").appendChild(chat_msg);
+    chat_msg.classList.add("aiChat");
+    chat_msg.innerHTML = marked.parse(value); 
     input_item.value = "";
     let objDiv = document.getElementById("chatbox_wrapper");
     objDiv.scrollTop = objDiv.scrollHeight;
