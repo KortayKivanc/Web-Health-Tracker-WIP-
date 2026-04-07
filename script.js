@@ -1,3 +1,7 @@
+import { GoogleGenAI } from "@google/genai";
+
+
+
 
 
 let water_value = 0; 
@@ -7,6 +11,26 @@ let activity_score = 87;
 let nutrition_score = 60;
 let previous_sayfa;
 
+let chat_history = [];
+
+async function getApiKey() {
+    try {
+        const response = await fetch('aiAPI.txt');
+        if (!response.ok) throw new Error("API dosyasi bulunamadi!");
+        const key = await response.text();
+        return key.trim();
+    } catch (error) {
+        console.error("Anahtar okuma hatası:", error);
+    }
+}
+var ai;
+var API_KEY;
+async function init() {
+    API_KEY = await getApiKey();
+    if (API_KEY) {
+        ai = new GoogleGenAI({apiKey: API_KEY});
+    }
+}
 
 window.onload = function() {
     document.getElementById('anasayfa').style.display = "flex";
@@ -164,16 +188,18 @@ for (let item of document.querySelectorAll(".buttons-settings div"))
 }
 
 let buton_item = document.getElementById("chat_button");
-let input_item = document.getElementById("chat_input")
-buton_item.addEventListener("click", function()
+let input_item = document.getElementById("chat_input");
+buton_item.addEventListener("click",async function()
 {   
     let input = input_item.value;
     if (input != null && input != "")
     {
         send_message(input, "Kullanıcı");
+        await getAIResponse(input);
+
     }
 })
-input_item.addEventListener("keydown", (event) =>
+input_item.addEventListener("keydown",async (event) =>
 {   
     if(event.key == "Enter")
     {
@@ -181,14 +207,45 @@ input_item.addEventListener("keydown", (event) =>
         if (input != null && input != "")
         {
             send_message(input, "Kullanıcı");
+            await getAIResponse(input);
         }
     }
-})
+})  
+async function getAIResponse(userInput) {
+    try {
+        let contextPrompt = "User Chat history ";
+        chat_history.forEach(element => {
+            contextPrompt+= element;
+        }); 
+        contextPrompt += `First of all always return in turkish. Do not talk about anything if it is unrelated to health and food nutrition, if meal entered list the protein, carbs and fat amount.
+        Return the total nutrition amount not seperately Template is "Protein: amount Carbs: amount Fat: amount Total Calorie: amount".
+        Try not to keep your responds too long. 
+        User stats: Water: ${water_value}ml, Sleep Score: ${sleep_score}, Activity: ${activity_score} Steps ${step_amount}. 
+                               User says: ${userInput} 
+                               `;
 
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: contextPrompt
+        });
+        console.log(response.text);
+        const text = response.text;
+        
+        send_message(text, "Gemini");
+    } catch (error) {
+        console.error("Gemini Error:", error);
+        send_message("Bağlantı hatası oluştu.", "Sistem");
+    }
+}
 
 
 function send_message(value, sender)
 {
+    chat_history.push(value);
+    if (chat_history.length > 20)
+    {
+        chat_history.shift(); 
+    }
     const chat_msg_header = document.createElement("div");
     chat_msg_header.classList.add("nameTag");
     chat_msg_header.textContent = sender + ":"
@@ -201,3 +258,5 @@ function send_message(value, sender)
     let objDiv = document.getElementById("chatbox_wrapper");
     objDiv.scrollTop = objDiv.scrollHeight;
 }
+
+init();
